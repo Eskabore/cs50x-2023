@@ -1,0 +1,24 @@
+This problem describes the task of completing an implementation of a game called Wordle50,
+which is a clone of the game Wordle. The program must accept a single command-line argument,
+which represents the size of the word the user needs to guess, and must ensure that the value of this argument is one of the acceptable values (5, 6, 7, or 8).
+
+The program must also open a word list for the length of word the user wants to guess and randomly select one from the 1000 options available.
+
+In the third TODO, the program should make sure that the user's guess is the correct length.
+The program should prompt the user (using get_string) to type in a word of the specified length, and if the user provides a guess of the wrong length,
+they should be prompted again until they provide the correct length. The program should also make sure that the guess is in lowercase characters.
+
+In the fourth TODO, the program needs to keep track of the user's "score" in the game.
+This should be done both on a per-letter basis and a per-word basis. For each letter, a score of 2 (EXACT) should be assigned for a letter in the correct place,
+1 (CLOSE) for a letter that's in the word but in the wrong place, or 0 (WRONG) for a letter that's not in the word.
+An array called status should be used to store these scores, and at the start of the game, it should contain all 0s.
+
+In the sixth TODO, the program should implement the function print_word,
+which should process the user's guess and print it out with color-coding based on the scores assigned in the previous TODO.
+The program should also check if the user has won the game and print a message if that's the case.
+
+Finally, in the seventh TODO, the program should implement the function play_again,
+which should prompt the user to play again and return a value indicating whether they want to play again or not.
+
+The staff has already written some code, but the student is responsible for filling in the TODOs in order to complete the implementation of the game Wordle50.
+The student should test the code after each TODO to make sure that it behaves as expected.

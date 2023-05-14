@@ -1,0 +1,55 @@
+1. Prompt the user to enter the number of candidates and store it in `candidate_count`
+2. Prompt the user to enter names of candidates and store it in an array `candidates`
+3. Prompt the user to enter the number of voters and store it in `voter_count`
+4. Create a 2D array `preferences` to store the rankings for each voter
+5. For each voter:
+  a. Prompt user to enter their ranking for the candidates
+  b. Store rankings in the `preferences` array.
+6. Initialize a loop that continues until there is a winner
+7. Inside the loop, call the `tabulate` function to count the votes for each candidate
+8. Call the `print_winner` function to check if any candidate has more than half of the votes
+  IF a candidate has more than half of the votes, print name of winner and return `true`
+  IF no candidate has more than half of the votes, return `false`
+9. Call the `find_min` function, to determine the candidate with the fewest votes
+10. Call the `is_tie` function, passing in the minimum number of votes as an argument
+  IF all remaining candidates have the same number of votes as the minimum number of votes,
+  print the names of all remaining candidates  and return `true`
+  IF there is no tie,  return `false`
+11. IF `is_tie` returned `false`, call the `eliminate` function, passing in the minimum number
+of votes as an argument
+12. Reset the vote counts for all candidates to zero
+13. End the loop
+
+
+Function `vote`:
+1. Check if the given name is a valid candidate
+2. IF the name is valid candidate, record the vote in `preferences` array and return `true`
+3. IF the name is not valid candidate, return `false`
+
+Function `tabulate`:
+1. Iterate through the `preferences` array
+2. FOR EACH candidate, count number of votes they received
+3. Uodate the `votes` field of the `candidate` 'struc' FOR EACH candidate
+with the number of votes received
+
+Function `print_winner:
+1. Iterate through the `candidates` array
+2. IF any candidate has more than half of the votes,
+print name of candidate and return `true`
+3. IF no candidate has more than half of the votes, return `false`
+
+Function `find_min`:
+1. Iterate through the `candidates` array
+2. Find the candidate with the fewest votes
+3. Return the number of votes for the candidate with the fewest votes
+
+Function `is_tie`:
+1. Iterate through the `candidates` array
+2. IF all remaining candidates have the same number of votes as the minimum number of votes,
+return `true`
+3. IF there is no tie, return `false`
+
+Function `eliminate`:
+1. Iterate through the `candidates` array
+2. Set the `eliminated` field of the `candidate` 'struct' FOR EACH candidate with the same number
+of votes as the minimum number of votes to `true`

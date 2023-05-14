@@ -1,0 +1,28 @@
+    To characterize the audio aura of the listener whose top 100 songs from 2018 are contained in the `songs.db` database,
+we can calculate the average energy, valence and danceability of their top 100 songs
+using the following query:
+
+```
+SELECT AVG(energy), AVG(valence), AVG(danceability) FROM songs LIMIT 100;
+```
+
+The results are as follow:
+
+ AVG(energy) | AVG(valence) | AVG(danceability) |
++-------------+--------------+-------------------+
+| 0.65906     | 0.484443     | 0.71646
+
+Based on the average energy, valence, and danceability values, it seems the the listener's audio aura is
+fairly energetic, with a moderate level of positivity (as indicated by the valence value) and
+a high level of danceability.
+This suggests that the listener tends to prefer music that is energetic and upbeat, with a positive
+and lively mood.
+
+    However, this method of calculating the audio aura may not be very representative of the listener's actual
+preferences and listening habits.
+The reason is the audio aura we've been presented is based only on the top 100 song of the listener from
+a single year, and does not take into account their overall listening history nor the full range of their
+musical preferences.
+    To get a more representative and accurate audio aura for the listener, it would be better to consider
+a wide range of factors and to use a method that is based on a representative and comprehensive
+analysis of the listener's listening habits and preferences.

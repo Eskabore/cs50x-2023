@@ -1,0 +1,21 @@
+------- NUMBER CONVERTER -------
+
+The code is a simple number converter that allows the user to convert a number between binary, decimal, and hexadecimal formats.
+
+The main function starts by checking if the program has been run with any command line arguments.
+If so, it prints a usage message and exits.
+
+Next, it calls the `message_animation()` function, which displays a welcome message and a 'Loading' animation.
+
+The program then prompts the user to select the input format, and uses the `tolower()`function to convert the input to lowercase
+so that the program can handle uppercase and lowercase input.
+
+Based on the input format, the program prompts the user to enter a number in the corresponding format and uses the `strtol()`
+and `scanf()` functions to convert the input to an integer.
+
+The program then prompts the user to select the output format and uses a series of 'if-else' statements to determine
+the output format, calling the `decimal_to_binary()`* function if the output format is binary.
+
+* The `decimal_to_binary()` function converts a decimal number to binary by repeatedly dividing the number by 2 and
+storing the remainder in an array.
+The function then prints the binary number by iterating through the array in reverse order.

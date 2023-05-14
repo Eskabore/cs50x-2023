@@ -1,0 +1,77 @@
+This is a C program that defines a function called print_bulb() that takes in an integer bit as an argument.
+The function uses an if-else statement to check if bit is equal to 0 or 1, and prints a corresponding Unicode emoji depending on the value of bit.
+The main function is currently empty and has a comment "TODO", indicating that something still needs to be added or implemented in this section of the program.
+The program also includes the headers <cs50.h>, <stdio.h>, and <string.h>, and defines a constant BITS_IN_BYTE with a value of 8.
+
+This code prompts the user to enter a string, and then iterates through each character in the string.
+For each character, it gets the ASCII value of the character, and then iterates through each bit in the ASCII value.
+For each bit, the code gets the j-th bit of the ASCII value and uses the print_bulb() function to print the corresponding bulb emoji, either dark or light.
+Finally, it prints a space between characters and a new line at the end.
+
+int bit = (ascii >> j) & 1;
+
+Here's how it works:
+
+The >> operator is the bitwise right shift operator, which shifts the bits of the number to the right by the specified number of places.
+For example, if the ASCII value is 10101010 (which is 170 in decimal) and j is 2, then ascii >> j would evaluate to 00101010 (which is 42 in decimal).
+
+The & operator is the bitwise AND operator, which compares each bit of the first operand to the corresponding bit of the second operand and returns 1 if both bits are 1, otherwise 0.
+If we use 1 as second operand, it will return the value of the bit in that position.
+
+So int bit = (ascii >> j) & 1 this line is shifting the bits of the ascii value to the right by the specified number of places (j)
+and then using the bitwise AND operator to compare each bit of the shifted value to the corresponding bit of 1,
+which always returns the value of the bit in the j-th position.
+
+
+Bitwise Left Shift: <<
+
+Makes values bigger, by shifting the value's bits into higher places, tacking on zeros in the vacated lower places. 
+As Ints 	As Bits
+3<<0 == 3 	0011<<0 == 0011
+3<<1 == 6 	0011<<1 == 0110
+3<<2 == 12 	0011<<2 == 1100
+
+
+Interesting facts about left shift:
+
+    1<<n pushes a 1 up into bit number n, creating the bit pattern 1 followed by n zeros.
+    The value of (k<<n) is actually k*2n.  This means bit shifting can be used as a faster multiply by a power of two.
+    k<<0 == k, for any k.
+    (k<<n) >= k, for any n and k (unless you have "overflow"!).
+    On a 32-bit machine, (k<<32) == 0, plus a compiler warning, because all the bits of k have overflowed away.
+    Left shift always shifts in fresh new zero bits.
+    You can left shift by as many bits as you want.
+    You can't left shift by a negative number of bits.
+
+
+Bitwise Right Shift: >>
+
+Makes values smaller, by shifting them into lower-valued places.  Note the bits in the lowest places just "fall off the end" and vanish.
+As Ints 	As Bits
+3>>0 == 3 	0011>>0 == 0011
+3>>1 == 1 	0011>>1 == 0001
+3>>2 == 0 	0011>>2 == 0000
+6>>1 == 3 	0110>>1 == 0011
+
+
+Interesting facts about right shift:
+
+    The value of (k>>n) is actually k/2n.  This can be used as a faster divide.
+    (k<<n)>>n == k, unless overflow has happened.
+    On a 32-bit machine, (k>>32) == 0, plus a compiler warning, because all the bits of k have fallen off the end.
+    There are two flavors of right shift: signed, and unsigned.  Unsigned shift fills in the new bits with zeros.  Signed shift fills the new bits with copies of the sign bit, so negative numbers stay negative after the shift.
+
+If you're dyslexic, like me, the left shift << and right shift >> can be really tricky to tell apart.  I always remember it like this:
+
+    k<<n  pumps up the value of k (the point of the << is injecting bigness into k)
+    k>>n  drains away the value of k (the point of the >> is draining bigness from k)
+
+Bitwise AND: &
+
+Output bits are 1 only if both corresponding input bits are 1.  This is useful to "mask out" bits you don't want, by ANDing them with zero.
+As Ints 	As Bits
+3&5 == 1 	0011&0101 == 0001
+3&6 == 2 	0011&0110 == 0010
+3&4 == 0 	0011&0100 == 0000
+
+

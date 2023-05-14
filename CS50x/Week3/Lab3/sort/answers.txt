@@ -1,0 +1,103 @@
+sort1 uses: bubble sort
+
+How do you know?: user time has the lowest latency when executing either a short (0.000s) or long list (<2.6s) of
+of already sorted numbers.
+We can deduce that Ω = Ω(n).
+This is confirmed when we compare the return time of the values of different sorting algorithms when sorting
+lists of randomly arranged numbers: sort1 is the slowest algorithm
+
+
+
+sort2 uses: merge sort
+
+How do you know?: It is the fastest algorithm at dealing with random inputs.
+
+sort3 uses: selection sort
+
+How do you know?: I proceeded by logical selection. After finding 2 of the 3 algorithms, only one type remains.
+
+
+// RESULTS
+// RANDOM
+time ./sort1 random5000.txt:
+- real: 0m0.112s
+- user: 0m0.062s
+- sys: 0m0.026s
+time ./sort2 random5000.txt:
+- real: 0m0.050s
+- user: 0m0.008s
+- sys: 0m0.019s
+time ./sort3 random5000.txt:
+- real: 0m0.093s
+- user: 0m0.027s
+- sys: 0m0.20s
+
+
+time ./sort1 random10000.txt:
+- real: 0m0.342s
+- user: 0m0.264s
+- sys: 0m0.040s
+time ./sort2 random10000.txt:
+- real: 0m0.079s
+- user: 0m0.008s
+- sys: 0m0.042s
+time ./sort3 random10000.txt:
+- real: 0m0.174s
+- user: 0m0.090s
+- sys: 0m0.052s
+
+
+time ./sort1 random50000.txt:
+- real: 0m8.035s
+- user: 0m6.975s
+- sys: 0m0.229s
+time ./sort2 random50000.txt:
+- real: 0m1.177s
+- user: 0m0.060s
+- sys: 0m0.197s
+time ./sort3 random50000.txt:
+- real: 0m4.060s
+- user: 0m2.669s
+- sys: 0m0.168s
+
+// SORTED
+time ./sort1 sorted5000.txt:
+- real: 0m0.052s
+- user: 0m0.000s
+- sys: 0m0.021s
+time ./sort2 sorted5000.txt:
+- real: 0m0.029s
+- user: 0m0.004s
+- sys: 0m0.018s
+time ./sort3 sorted5000.txt:
+- real: 0m0.051s
+- user: 0m0.033s
+- sys: 0m0.015s
+
+
+time ./sort1 sorted10000.txt:
+- real: 0m0.089s
+- user: 0m0.009s
+- sys: 0m0.035s
+time ./sort2 sorted10000.txt:
+- real: 0m0.100s
+- user: 0m0.004s
+- sys: 0m0.037s
+time ./sort3 sorted10000.txt:
+- real: 0m0.185s
+- user: 0m0.085s
+- sys: 0m0.062s
+
+
+time ./sort1 sorted50000.txt:
+- real: 0m2.522s
+- user: 0m0.056s
+- sys: 0m0.139s
+time ./sort2 sorted50000.txt:
+- real: 0m9.917s
+- user: 0m0.032s
+- sys: 0m0.185s
+time ./sort3 sorted50000.txt:
+- real: 0m3.616s
+- user: 0m2.654s
+- sys: 0m0.182s

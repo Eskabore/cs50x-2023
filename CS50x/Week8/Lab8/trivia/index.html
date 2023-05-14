@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            function checkMultipleChoice() {
+                var correct = "B";
+                var answer = document.querySelector('input[name="multiple-choice"]:checked').value;
+                var result = document.getElementById("multiple-choice-result");
+
+                if (answer === correct) {
+                    result.innerHTML = "Correct!";
+                    result.style.color = "green";
+                } else {
+                    result.innerHTML = "Incorrect";
+                    result.style.color = "red";
+                }
+            }
+
+            function checkFreeResponse() {
+                var correct = "Ouagadougou";
+                var answer = document.getElementById("free-response").value;
+                var result = document.getElementById("free-response-result");
+
+                if (answer.toLowerCase() === correct.toLowerCase()) {
+                    result.innerHTML = "Correct!";
+                    result.style.color = "green";
+                    document.getElementById("free-response").classList.add("correct")
+                } else {
+                    result.innerHTML = "Incorrect";
+                    result.style.color = "red";
+                    document.getElementById("free-response").classList.add("incorrect")
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>
+                    What is the answer to the ultimate question of life, the universe, and everything?
+                </h3>
+                <form>
+                    <input type="radio" name="multiple-choice" value="A" onClick="checkMultipleChoice()">A) 24<br>
+                    <input type="radio" name="multiple-choice" value="B" onClick="checkMultipleChoice()">B) 42<br>
+                    <input type="radio" name="multiple-choice" value="C" onClick="checkMultipleChoice()">C) 0<br>
+                </form>
+                <p id="multiple-choice-result"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>
+                    What is the capital of Burkina-Faso?
+                </h3>
+                <input type="text" id="free-response">
+                <button onClick="checkFreeResponse()">Submit</button>
+                <p id="free-response-result"></p>
+            </div>
+        </div>
+    </body>
+</html>

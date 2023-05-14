@@ -1,0 +1,28 @@
+1. Initialize variables:
+  - candidates: an array of strings representing the names of the candidates
+  - preferences: a 2D array of integers representing the number of voter who prefer
+each candidate over the other
+  - locked: a 2D array of booleans representing the pairs of candidates that are
+locked in to the graph
+  - pairs: an array of structures representing the pairs of candidates and their
+strength of victory
+  - pair_count: an integer representing the number of pairs in the pairs array
+  - candidate_count: an integer representing the nuumber the nuumber of candidates
+
+2. Parse command line arguments and populate the candidates array
+
+3. Initialize the preferences and locked arrays to zero
+
+4. Prompt the user for the number of voters and store the value in a variable
+
+5. For each voter:
+  a. Prompt the user for their ranks and store the values in an array
+  b. Call the vote function and pass it the ranks array as an argument
+  c. Call the record_preferences function and pass it the ranks array as an argument
+
+6. Call the add_pairs function
+7. Call the sort_pairs function
+8. Call the sort_pairs function
+9. Call the sort_pairs function
+
+10. End pogram

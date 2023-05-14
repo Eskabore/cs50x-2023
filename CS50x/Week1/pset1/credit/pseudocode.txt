@@ -1,0 +1,100 @@
+Line 1 Prompt user for a Credit Card number
+    Report via "printf" whether number is valid:
+
+ Line 1.1     # User's input is entirely numeric
+
+      int ccnum = get_long();
+      get_long = "Credit card number: ";
+
+Line 1.1.1      # User's input won't have leading zeroes
+      -> Identify 1st (first) number
+
+      int n, first;
+      first = n;
+      while (first >= 10)
+      {
+          first = first / 10;
+      }
+      if (first === 0)
+      {
+          (return) Go to line 1
+      }
+
+      -> if first === 0
+        --> Go to line INVALID
+// end of 1.1.1
+
+      # Card's length number is either 13, 15 or 16
+
+       if (ccnum.length() != 13 || ccnum.length() != 15 || ccnum.length() != 16)
+       {
+         Go to invalid
+       } else{
+         Got to Line 2;
+       }
+
+      # Apply a Checksum Algorithm:
+        -> Multiply every other digit by 2, starting with second-to-last digit.
+        --> a/Inverse input number
+            b/ multyply every second digit,do so using for loop
+
+
+           ## Starting from the rightmost digit, double the value of every second digit
+             ### If first digit starts with 0 Go to line INVALID
+
+        -> Add those products' digits together
+           ## If doubling a number results in a 2 digits number (dbld num > 9)
+              if
+           -> Add the digits of the product to get a single digit number
+
+        -> Add the sum to the sum of the digits that weren't multiply by 2
+
+          -> If the total's last digit is 0, number is valid
+             # If total's modulo 10 is equal to 0
+               number % 10 = 0
+             If not (!) Go to Invalid
+
+       # Consider following specificities and execute command
+        - American Express
+          @ 15 digits starts with 34 or 37
+          -> Output AMEX\n
+        - MasterCard
+          @ 16 digits starts with 51, 52, 53, 54, or 55
+          -> Output MASTERCARD\n
+        - Visa
+          @ 13 or 16 digits starts with 4
+          -> Output VISA\n
+        - Invalid
+          -> Output INVALID\n
+
+TODO
+1 Prompt for Input
+2 Calculate Checksum
+ 2.1 Multiply every other digit by 2 (product_even), starting with
+ the number’s second-to-last digit, and then add those products(total_sum1)’ digits together.
+ 2.2 Add the sum (total_sum2) to the sum (total_sum1) of the digits that weren’t multiplied by 2.
+ 2.3 If the total (total_sum2)’s last digit is 0 the number is valid (printf("VALID\n")).
+
+3 Check for card length & starting digits
+4 Print Output
+
+From the rightmost digit (excluding the check digit) => *ccnum - 1*
+and moving left for (i = 0; i <= ccnum - 1; i --),
+
+ double the value of every second digit
+ for (j = 0; j <= i; j += 2)
+ {
+   d = n*2;
+ } .
+ * The check digit is neither doubled nor included in this calculation;
+  * the first digit doubled is the digit located immediately left of the check digit.
+   * If the result of this doubling operation is greater than 9 (e.g., 8 × 2 = 16),
+    * then add the digits of the result (e.g., 16: 1 + 6 = 7, 18: 1 + 8 = 9) or,
+     * alternatively, the same final result can be found by subtracting 9
+      * from that result (e.g., 16: 16 − 9 = 7, 18: 18 − 9 = 9).
+
+    int d;
+    int ccnum;
+    int n = ccnum.length();
+
+    bool valid =

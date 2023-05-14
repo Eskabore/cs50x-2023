@@ -1,0 +1,40 @@
+A. Load function
+
+- The `load()` function should read the words from the dictionary file, one word per line, and insert them into the hash table.
+  The function should return true if the dictionary was successfully loaded, or false otherwise.
+
+- This implementation reads each word from the dictionary file and inserts it into the hash table using the hash() function to determine the index at which to insert the word.
+  It also handles error cases such as when the file cannot be opened or when there is not enough memory to allocate for a new node.
+
+B. Hash function
+
+- The hash() function should map a word to an integer in the range [0, N) where N is the number of buckets in the hash table.
+
+- This implementation calculates the hash value for a word by summing the ASCII values of its characters and then returning the result modulo N.
+
+C. Size function
+
+- The size() function should return the number of words in the dictionary if it has been successfully loaded, or 0 if it has not yet been loaded.
+
+- This implementation counts the number of words in each bucket of the hash table by traversing the linked list at each index and incrementing a count for each node encountered.
+
+D. Check function
+
+- The check() function should take a word as input and return a boolean indicating whether it is in the dictionary or not.
+  It should be case-insensitive, meaning that it should return true for any capitalization of the word.
+
+- This implementation first calculates the hash value of the input word using the hash() function.
+  It then searches for the word in the hash table by traversing the linked list at the calculated index.
+  As it traverses the list, it uses strcasecmp() to compare the input word to the word in each node.
+  If a match is found, the function returns true.
+  If the end of the linked list is reached without finding a match, the function returns false.
+
+E. Unload function
+
+- The unload() function should free the memory used by the hash table and the linked lists, unloading the dictionary from memory.
+
+- This implementation frees the memory for each node in each linked list in the hash table.
+
+ISSUES
+ A problem has occured in the check() function as it was still performing a case-sensitive comparison, even though I am using strcasecmp().
+ This is because strcasecmp() is being passed the original input word, which has had not been converted to lowercase.

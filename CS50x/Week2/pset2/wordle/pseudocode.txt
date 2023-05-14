@@ -1,0 +1,138 @@
+PROGRAM WORDLE50
+
+1. Declare variables:
+  - LISTSIZE = 1000
+  - EXACT = 2
+  - CLOSE = 1
+  - WRONG = 0
+  - wordsize
+  - wordlist
+  - options
+  - choice
+  - guesses
+  - won
+
+2. Verify command line input:
+  - argc must be 2
+  - argv[1] must be between 5 and 8
+
+3. Initialize wordsize variable
+
+4. Open and read wordlist file:
+  - Create filename using wordsize
+  - Open file with fopen
+  - Verify that file is not NULL
+  - Read contents of file into options array
+
+5. Select a random word from options as the choice
+
+6. Print greeting and set number of guesses to one more than length of choice word
+
+7. Start main game loop:
+  - Prompt user for guess
+    - Ensure guess is correct length
+  - Initialize status array with WRONG values
+  - Calculate score for guess using check_word function
+  - Print guess with correct color coding using print_word function
+  - Check if score is equal to number of letters in choice word * EXACT
+    - If true, set won variable to true and exit loop
+  - Decrement guesses variable
+
+8. Print win or lose message based on value of won variable
+
+FUNCTION get_guess(wordsize)
+  1. Declare variable guess
+  2. Prompt user for guess
+  3. Verify that length of guess is equal to wordsize
+    - If not, prompt user again
+  4. Return guess
+
+FUNCTION check_word(guess, wordsize, status, choice)
+score = 0
+// iterate over each letter of the guess
+FOR i = 0 to wordsize-1
+// iterate over each letter of the choice
+FOR j = 0 to wordsize-1
+// compare the current guess letter to the current choice letter
+IF guess[i] == choice[j]
+// if they're the same position in the word, score EXACT points (green) and break so you don't compare that letter further
+IF i == j
+status[i] = EXACT
+score += EXACT
+BREAK
+// if it's in the word, but not the right spot, score CLOSE point (yellow)
+ELSE
+status[i] = CLOSE
+score += CLOSE
+// return total score
+RETURN score
+
+FUNCTION print_word(guess, wordsize, status)
+// print word character-for-character with correct color coding, then reset terminal font to normal
+FOR i = 0 to wordsize-1
+// check the status of the letter
+IF status[i] == EXACT
+PRINT GREEN + guess[i] + RESET
+ELSE IF status[i] == CLOSE
+PRINT YELLOW + guess[i] + RESET
+ELSE
+PRINT RED + guess[i] + RESET
+PRINT newline
+
+FUNCTION main(argc, argv[])
+// ensure proper usage
+IF argc != 2
+PRINT "Usage: ./wordle wordsize"
+RETURN 1
+
+// check that argv[1] is between 5 and 8
+IF atoi(argv[1]) < 5 OR atoi(argv[1]) > 8
+PRINT "Error: wordsize must be either 5, 6, 7, or 8"
+RETURN 1
+
+// convert argv[1] to int and store in wordsize variable
+wordsize = atoi(argv[1])
+
+// create filename for wordlist file using wordsize
+wl_filename = wordsize + ".txt"
+
+// open wordlist file
+wordlist = fopen(wl_filename, "r")
+
+// check if file failed to open
+IF wordlist == NULL
+PRINT "Error opening file " + wl_filename
+RETURN 1
+
+// create array to store all words from wordlist file
+options[LISTSIZE][wordsize + 1]
+
+// load words from file into options array
+FOR i = 0 to LISTSIZE-1
+fscanf(wordlist, "%s", options[i])
+
+// seed random number generator
+srand(time(NULL))
+
+// select a random word from options array
+choice = options[rand() % LISTSIZE]
+
+// set number of guesses to wordsize + 1
+guesses = wordsize + 1
+
+// set won flag to false
+won = false
+
+// print game greeting
+PRINT GREEN + "This is WORDLE50" + RESET
+PRINT "You have " + guesses + " tries to guess the " + wordsize + "-letter word I'm thinking of"
+
+// main game loop
+FOR i = 0 to guesses-1
+
+// get user's guess
+guess = get_guess(wordsize)
+
+// create status array and set all elements to WRONG
+status[wordsize]
+... // To continue

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+<form action="{{ url_for('register')}}" method="POST">
+    <div class="mb-3">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control mx-auto w-auto" id="username" name="username">
+    </div>
+    <div class="mb-3">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control mx-auto w-auto" id="password" name="password">
+    </div>
+    <div class="mb-3">
+        <label for="confirmation">Confirm Password:</label>
+        <input type="password" class="form-control mx-auto w-auto" id="confirmation" name="confirmation">
+    </div>
+    <button class="btn btn-primary" type="submit">Register</button>
+</form>
+{% endblock %}

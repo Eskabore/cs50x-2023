@@ -1,0 +1,1 @@
+SELECT * FROM bakery_security_logs WHERE license_plate = '4V16VO0';

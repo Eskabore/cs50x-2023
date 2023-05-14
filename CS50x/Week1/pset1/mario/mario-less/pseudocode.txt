@@ -1,0 +1,10 @@
+Prompt user for Input
+Check Input validity
+If input is valid
+  Draw right-aligned pyramid
+    For each new row
+      Print decrementing number of space
+      Print incrementing number of hashes
+      Print a new line
+Else
+Go back to line 1

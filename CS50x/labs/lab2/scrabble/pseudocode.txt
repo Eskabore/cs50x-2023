@@ -1,0 +1,59 @@
+/*1 Complete the function
+  1.1 Return the number of points for the word
+  1.2 Ignore non-letter characters (RegEx)
+  1.3 Handle both Uppercase and Lowercase letters
+2 Print out required strings
+*/
+
+// Draft Pseudocode
+
+char letter[26] = "[a-zA-Z0]";
+
+// Step 1 in main():
+
+A/ 1. Prompt Player1 input
+   string word1 = get_string("Player 1: ");
+   2. Prompt Player2 input
+   string word2 = get_string("Player 2: ");
+
+// Apply conditions in compute_score()
+
+  // Set a counter 'n' to evaluate word's length
+  for (int n = 0; n <= strlen(word); n++)
+  {
+    POINTS[n] = letter[n];
+    var score += POINTS[n];
+    return score;
+  }
+
+
+function compute_score(){
+
+    for (int n = 0; n <= strlen(word); n++) {
+        for (int i = 0; i < strlen(word); i++) {
+
+           if (word1[n] > 0  && word1[n] < 9)
+           {
+             POINTS[n] = letter[n];
+             var score += POINTS[n];
+             return score;
+           }
+           else if !isvalid
+        {
+         return get_string("Player 1: ");
+        }
+        word2 isvalid :
+         if( word2[n] > 0  && word2[n] < 9)
+      }
+      else !isvalid
+      {
+        return get_string("Player 2: ");
+      }
+    }
+
+
+  do
+  {
+    word1
+  }
+  while()

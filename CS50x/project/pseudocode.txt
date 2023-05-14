@@ -1,0 +1,31 @@
+# Number Converter
+
+# Check if program has been run with any command line arguments
+    # If so, print usage message and exit
+
+# Display welcome message and loading animation
+
+# Prompt user to select input format (binary, decimal, or hexadecimal)
+    # Convert input to lowercase
+
+# Based on input format:
+    # Prompt user to enter number in corresponding format
+    # Convert input to integer using strtol() or scanf()
+
+# Prompt user to select output format (binary, decimal, or hexadecimal)
+    # Convert input to lowercase
+
+# Based on the output format:
+    # If binary, call decimal_to_binary() function and pass in the number
+    # If decimal, print the number
+    # If hexadecimal, print the number in hexadecimal format
+    # If invalid format, print error message and exit
+
+
+# decimal_to_binary(n) function:
+    # Intialize array to store binary digits
+    # While n is greater than 0:
+        # Add n modulo 2 to array
+        # Divide n by 2
+    # Print "Binary: "
+    # Iterate through array in reverse order and print each digit

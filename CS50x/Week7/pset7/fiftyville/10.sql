@@ -1,0 +1,1 @@
+SELECT flight_id FROM passengers WHERE passport_number = 5773159633;

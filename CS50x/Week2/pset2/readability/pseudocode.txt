@@ -1,0 +1,34 @@
+## Specification
+
+A/ Implement your program in a file called readability.c in a directory called readability.
+
+B/ Your program must prompt the user for a string of text using (get_string.)
+
+C/ Your program should (count) the number of letters, words, and sentences in the text.
+You may assume that a letter is any lowercase character from a to z or any uppercase character from A to Z,
+any sequence of characters separated by spaces should count as a word,
+and that any occurrence of a period, exclamation point, or question mark indicates the end of a sentence.
+
+D/ Your program should print as output "Grade X" where X is the grade level computed by the Coleman-Liau formula,
+rounded to the nearest integer.
+
+E/ If the resulting index number is 16 or higher
+(equivalent to or greater than a senior undergraduate reading level),
+your program should output "Grade 16+" instead of giving the exact index number.
+If the index number is less than 1, your program should output "Before Grade 1".
+
+## Solving
+
+A/  Getting User's Input
+Specifically, implement in readability.c a main function that prompts the user with "Text: " using get_string
+ and then prints that same text using printf. !Be sure to #include any necessary header files.! DONE
+
+B/ Letters
+- Consider letters to be uppercase or lowercase alphabetical character,
+not punctuation, digits, or other symbols.
+- Add to readability.c, below main, a function called count_letters that takes one argument,
+a string of text, and that returns an int, the number of letters in that text.
+Be sure to add the function’s prototype, too, atop your file, so that main knows how to call it. DONE
+==> Count letters = step 1. count letters per sentence. Define a letter.
+
+si counter rencontre non alphabetical

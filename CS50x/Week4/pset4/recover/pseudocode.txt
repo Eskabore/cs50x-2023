@@ -1,0 +1,8 @@
+1. Read in the command-line argument that specifies the name ofthe forensic image file
+2. Open the forensic image file for reading
+3. Read the forensic image file block by block
+4. Check each block to see if it is the start of a JPEG file
+5. If you find the start of a JPEG file, write all the blocks that follow it until reaching the start of another JPEG file or the end of the file
+6. Name the JPEG file using the numbering scheme specified in the prompt (###.jpg, where ### is a three-digit decimal number starting at 000)
+7. Repeat the processs until having recovered all the JPEGs from theforensic image
+8. Close the forensic image file

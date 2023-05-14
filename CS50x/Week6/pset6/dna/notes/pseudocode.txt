@@ -1,0 +1,15 @@
+Check if the correct number of command-line arguments have been provided.
+  If not,
+    print an error message
+    exit.
+Read the CSV file into memory and store the column names and individual STR counts.
+Read the DNA sequence file into memory and store the sequence.
+For each STR in the CSV file:
+  Compute the longest run of consecutive repeats of the STR in the DNA sequence using the 'longest_match' function.
+For each individual in the CSV file:
+  If the STR counts for the individual match exactly with the DNA sequence,
+    print the name of the individual
+    exit.
+  If no individual has a matching STR count,
+    print "No match"
+    exit.

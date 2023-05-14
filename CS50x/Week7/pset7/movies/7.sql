@@ -1,0 +1,2 @@
+-- List all movies from 2010 and their ratings, in descending order by rating and (when same rating) order by alphabetical order
+SELECT title, rating FROM movies JOIN ratings ON movies.id = ratings.movie_id WHERE year = 2010 ORDER BY rating DESC, title ASC;

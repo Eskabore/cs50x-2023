@@ -1,0 +1,1 @@
+SELECT name, passport_number, license_plate FROM people WHERE phone_number = '(375) 555-8161';

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Birthdays</title>
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        <div class="header">
+            <h1>Birthdays</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+
+                <h2>Add a Birthday</h2>
+                <!-- Create a form for users to submit a name, a month, and a day -->
+                <form action="/" method="POST">
+                    <label for="name">Name:</label>
+                    <input autocomplete="off" autofocus type="text" id="name" name="name" placeholder="Name">
+                    <label for="month">Month:</label>
+                    <input autocomplete="off" autofocus type="text" id="month" name="month" placeholder="Month" min="1" max="12">
+                    <label for="day">Day:</label>
+                    <input autocomplete="off" autofocus type="text" id="day" name="day" placeholder="Day" min="1" max="31">
+                    <button type="submit">Add Birthday</button>
+                </form>
+            </div>
+
+            <div class="section">
+
+                <h2>All Birthdays</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Birthday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loop through the database entries to display them in this table -->
+                        {% for birthday in birthdays %}
+                          <tr>
+                            <td>{{birthday.name}}</td>
+                            <td>{{birthday.month}}/{{birthday.day}}</td>
+                            <td>
+                                <form action="{{ url_for('delete', id=birthday.id) }}" method="POST">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="submit" value="Delete">
+                                </form>
+                            </td>
+                          </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
