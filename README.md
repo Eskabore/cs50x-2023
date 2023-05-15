@@ -19,3 +19,5 @@ While I'm thrilled to share my journey with you, it's important to remind all vi
 Feel free to delve into the repository, draw inspiration, and use it as a point of reference, but please ensure you uphold the principles of academic integrity and honest learning.
 
 Thank you for your cooperation, and enjoy your journey into the world of coding!
+
+**PS**: I am open for contribution. Visit my profile and leave me a feedback, or contact me on jl-turquin.com
